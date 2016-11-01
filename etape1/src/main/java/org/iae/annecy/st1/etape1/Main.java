@@ -3,7 +3,6 @@
  */
 package org.iae.annecy.st1.etape1;
 
-import org.iae.annecy.st1.common.mvc.Controller;
 import org.iae.annecy.st1.common.mvc.DataView;
 import org.iae.annecy.st1.common.mvc.View;
 import org.iae.annecy.st1.etape1.controller.MainController;
@@ -17,19 +16,28 @@ import org.iae.annecy.st1.tools.ConsoleHelper;
  */
 public class Main {
 
+	private static MainController mainController;
+
+	static {
+		Main.mainController = new MainController();
+	}
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Controller mainController = new MainController();
+		initUserModel();
+
+		DataView userData = mainController.get("user:display");
+		View userView = new UserTextFrenchView();
+
+		ConsoleHelper.display(userView.build(userData));
+
+	}
+
+	private static void initUserModel() {
 		UserModel userModel = new UserModel();
 		userModel.register(mainController);
-		
-		DataView userData = mainController.get("user_display");
-		View userView = new UserTextFrenchView();
-		
-	ConsoleHelper.display(userView.build(userData));
-
 	}
 
 }
