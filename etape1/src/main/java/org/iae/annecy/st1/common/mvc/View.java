@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package org.iae.annecy.st1.common.mvc;
 
 /**
@@ -8,7 +9,7 @@ package org.iae.annecy.st1.common.mvc;
  *
  */
 public interface View {
-	
-	String build(DataView datas);
+
+    String build(DataView datas);
 
 }

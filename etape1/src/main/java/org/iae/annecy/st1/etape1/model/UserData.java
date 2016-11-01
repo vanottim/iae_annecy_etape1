@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package org.iae.annecy.st1.etape1.model;
 
 import org.iae.annecy.st1.common.mvc.AbstractDataView;
@@ -12,11 +13,11 @@ import org.iae.annecy.st1.common.mvc.DataView;
  */
 public class UserData extends AbstractDataView implements DataView {
 
-	/**
-	 * 
-	 */
-	public UserData() {
-		super();
-	}
+    /**
+     * 
+     */
+    public UserData() {
+	super();
+    }
 
 }

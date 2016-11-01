@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package org.iae.annecy.st1.common.mvc;
 
 /**
@@ -8,7 +9,9 @@ package org.iae.annecy.st1.common.mvc;
  *
  */
 public interface Model {
-	DataView get();
-	String getPath();
-	void register(Controller controller);
+    DataView get();
+
+    String getPath();
+
+    void register(Controller controller);
 }

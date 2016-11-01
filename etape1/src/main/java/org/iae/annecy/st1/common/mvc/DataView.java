@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package org.iae.annecy.st1.common.mvc;
 
 /**
@@ -9,8 +10,8 @@ package org.iae.annecy.st1.common.mvc;
  */
 public interface DataView {
 
-	public String getData(String key);
-	void add(String key, String data);
-	
-	
+    public String getData(String key);
+
+    void add(String key, String data);
+
 }

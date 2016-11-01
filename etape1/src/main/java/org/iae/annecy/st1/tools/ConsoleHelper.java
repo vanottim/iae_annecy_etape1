@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package org.iae.annecy.st1.tools;
 
 /**
@@ -9,8 +10,7 @@ package org.iae.annecy.st1.tools;
  */
 public class ConsoleHelper {
 
-
-	public static void display(String mesage){
-		System.out.println(mesage);
-	}
+    public static void display(String mesage) {
+	System.out.println(mesage);
+    }
 }
