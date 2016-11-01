@@ -10,7 +10,7 @@ package org.iae.annecy.st1.common.mvc;
 public interface DataView {
 
 	public String getData(String key);
-	public void add(String key, String data);
+	void add(String key, String data);
 	
 	
 }

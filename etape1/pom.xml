@@ -7,6 +7,11 @@
 	<name>Etape 1</name>
 	<description>Découverte de git, eclipse, MVC/SOA</description>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -23,12 +28,45 @@
 				<configuration>
 					<mainClass>org.iae.annecy.st1.etape1.Main</mainClass>
 					<arguments>
-						<argument>foo</argument>
+						<argument>Jérémie</argument>
 						<argument>bar</argument>
 					</arguments>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.7</version>
+				<configuration>
+					<linkXref>true</linkXref>
+					<sourceEncoding>utf-8</sourceEncoding>
+					<minimumTokens>100</minimumTokens>
+					<targetJdk>1.8</targetJdk>
+					<!-- <excludes> <exclude>**/*Bean.java</exclude> <exclude>**/generated/*.java</exclude> 
+						</excludes> <excludeRoots> <excludeRoot>target/generated-sources/stubs</excludeRoot> 
+						</excludeRoots> -->
+					<rulesets>
+						<!-- Two rule sets that come bundled with PMD -->
+						<ruleset>/rulesets/java/basic.xml</ruleset>
+						<ruleset>/rulesets/java/braces.xml</ruleset>
+
+						<ruleset>/rulesets/java/cloneImplementation.xml</ruleset>
+
+						<ruleset>/rulesets/java/naming.xml</ruleset>
+					</rulesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+		</plugins>
+	</reporting>
 
 </project>
