@@ -5,20 +5,21 @@
 package org.iae.annecy.st1.etape1.view;
 
 import org.iae.annecy.st1.common.mvc.DataView;
-import org.iae.annecy.st1.common.mvc.View;
+import org.iae.annecy.st1.common.mvc.StringView;
 
 /**
+ * Permet une representation textuel d'un utilisateur.
+ * 
  * @author Djer1013
- *
  */
-public class UserTextFrenchView implements View {
+public class UserTextFrenchView implements StringView {
 
     /**
-     * 
+     * Renvoie une representation en text brute d'un utilsiateur.
      */
-    public String build(DataView datas) {
+    public String build(final DataView datas) {
 
-	String textView = "Votre nom : " + datas.getData("name");
+	final String textView = "Votre nom : " + datas.getData("name");
 
 	return textView;
     }

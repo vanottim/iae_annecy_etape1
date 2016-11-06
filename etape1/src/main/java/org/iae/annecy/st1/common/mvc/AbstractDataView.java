@@ -8,25 +8,38 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * Classe helper pour la representation des données.
+ * Stocke localement une données (texte) à partir d'une clef (teste)
+ * 
  * @author Djer1013
- *
  */
-public class AbstractDataView implements DataView {
-
-    private Map<String, String> datas;
+public abstract class AbstractDataView implements DataView {
 
     /**
-     * 
+     * Systeme interne de stockage des données.
+     */
+    private final transient Map<String, String> datas;
+
+    /**
+     * Constructeur par défaut. Intitialise une map pour la sauvegarde des données.
      */
     public AbstractDataView() {
 	datas = new ConcurrentHashMap<String, String>();
     }
 
-    public String getData(String key) {
+    /**
+     * Check Interface.
+     * {@inheritDoc}
+     */
+    public String getData(final String key) {
 	return datas.get(key);
     }
 
-    public void add(String key, String data) {
+    /**
+     * Check Interface.
+     * {@inheritDoc}
+     */
+    public void add(final String key, final String data) {
 	datas.put(key, data);
     }
 

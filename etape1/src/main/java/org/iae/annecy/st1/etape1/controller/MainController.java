@@ -10,37 +10,53 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.iae.annecy.st1.common.mvc.Controller;
 import org.iae.annecy.st1.common.mvc.DataView;
 import org.iae.annecy.st1.common.mvc.Model;
+import org.iae.annecy.st1.etape1.model.UserData;
 
 /**
+ * Controller principal permetant de traiter les actions de l'exemple et ayant
+ * acces aux modeles d'exemple.
+ * 
  * @author Djer1013
- *
+ * 
  */
 public class MainController implements Controller {
 
-    private Map<String, Model> models;
+    /**
+     * Liste des modeles accesible via ce controller.
+     */
+    private final transient Map<String, Model> models;
 
+    /**
+     * Initialise le stockage des modeles accesibles.
+     */
     public MainController() {
 	super();
 	this.models = new ConcurrentHashMap<String, Model>();
     }
 
     /**
-     * Search for a view for a given path
-     * 
-     * @param name
-     *            name
+     * Check Interface. {@inheritDoc}
      */
-    public DataView get(String name) {
-	Model model = models.get(name);
-	DataView datas = null;
-	if (null != model) {
+    public DataView get(final String actionName) {
+	final Model model = models.get(actionName);
+	return getData(model);
+    }
+
+    /**
+     * Check Interface. {@inheritDoc}
+     */
+    public void add(final String name, final Model model) {
+	models.put(name, model);
+    }
+
+    private DataView getData(final Model model) {
+	DataView datas;
+	if (null == model) {
+	    datas = new UserData();
+	} else {
 	    datas = model.get();
 	}
 	return datas;
-    }
-
-    public void add(String name, Model model) {
-	models.put(name, model);
     }
 
 }

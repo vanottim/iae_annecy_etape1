@@ -5,12 +5,22 @@
 package org.iae.annecy.st1.tools;
 
 /**
+ * Classe utilitaire pour gérer les intération utilisateur via une console.
+ * 
  * @author Djer1013
- *
  */
-public class ConsoleHelper {
+public final class ConsoleHelper {
 
-    public static void display(String mesage) {
+    private ConsoleHelper(){
+	
+    }
+    
+    /**
+     * Affiche une message dans la console.
+     * 
+     * @param mesage le message à afficher à l'utilisateur
+     */
+    public static void display(final String mesage) {
 	System.out.println(mesage);
     }
 }
