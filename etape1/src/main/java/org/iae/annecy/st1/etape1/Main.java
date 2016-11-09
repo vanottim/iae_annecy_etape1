@@ -18,34 +18,34 @@ import org.iae.annecy.st1.tools.ConsoleHelper;
  */
 public class Main {
 
-    /**
-     * COntroller pemetant le traitement des actions d'exemple.
-     */
-    private static MainController mainController;
+	/**
+	 * COntroller pemetant le traitement des actions d'exemple.
+	 */
+	private static MainController mainController;
 
-    static {
-	Main.mainController = new MainController();
-    }
+	static {
+		Main.mainController = new MainController();
+	}
 
-    /**
-     * Lance l'application.
-     * 
-     * @param args
-     *            command line parameters
-     */
-    public static void main(final String[] args) {
-	initUserModel();
+	/**
+	 * Lance l'application.
+	 * 
+	 * @param args
+	 *            command line parameters
+	 */
+	public static void main(final String[] args) {
+		initUserModel();
 
-	final DataView userData = mainController.get("user:display");
-	final StringView userView = new UserTextFrenchView();
+		final DataView userData = mainController.get("user:display");
+		final StringView userView = new UserTextFrenchView();
 
-	ConsoleHelper.display(userView.build(userData));
+		ConsoleHelper.display(userView.build(userData));
 
-    }
+	}
 
-    private static void initUserModel() {
-	final UserModel userModel = new UserModel();
-	userModel.register(mainController);
-    }
+	private static void initUserModel() {
+		final UserModel userModel = new UserModel();
+		userModel.register(mainController);
+	}
 
 }
