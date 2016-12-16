@@ -1,9 +1,10 @@
 package org.iae.annecy.st1.etape1.model.produit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Annuaire {
+public class Annuaire implements Serializable {
 	
 	public ArrayList<Client> clients = new ArrayList<Client>();
 
@@ -29,6 +30,15 @@ public class Annuaire {
 		return chaine;
 	}
 	
+	public String affiche2(){
+		String chaine = "";
+		for(Client c : clients){
+			chaine = chaine + c.affiche2();
+		}
+		
+		return chaine;
+	}
+	
 	public void ajouterClient(Client c){
 		clients.add(c);
 	}
@@ -39,17 +49,29 @@ public class Annuaire {
 	
 	public Client rechercherClient(String numClient){
 		Iterator<Client> it = this.getClients().iterator();
-		Client monClient = new Client();
+		//Client monClient = new Client();
 		while(it.hasNext()){
 			Client current = it.next();
 			if(current.getNumClient().equals(numClient)){
-				monClient = current;
-				break;
+				return current;
 			}
 			
 		}
 		
-		return monClient;
+		return null;
 	}
+	
+	public boolean numExiste(String num) {
+		boolean bool = false;
+		for (Client c : clients) {
+			if (num.equals(c.getNumClient()))
+				bool = true;
+
+		}
+		return bool;
+	}
+	
+	
+
 
 }

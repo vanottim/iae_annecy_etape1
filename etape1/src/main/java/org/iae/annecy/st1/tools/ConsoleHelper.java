@@ -4,6 +4,8 @@
 
 package org.iae.annecy.st1.tools;
 
+import org.iae.annecy.st1.etape1.model.produit.Element;
+
 /**
  * Classe utilitaire pour gérer les intération utilisateur via une console.
  * 
@@ -22,6 +24,6 @@ public final class ConsoleHelper {
 	 *            le message à afficher à l'utilisateur
 	 */
 	public static void display(final String mesage) {
-		System.out.println(mesage);
+		(new Element(mesage)).initElement();
 	}
 }

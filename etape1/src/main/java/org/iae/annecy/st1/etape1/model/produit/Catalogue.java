@@ -1,24 +1,29 @@
 package org.iae.annecy.st1.etape1.model.produit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Catalogue {
-	
+public class Catalogue implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Produit> produits = new ArrayList<Produit>();
-	
-	public Produit rechercherProduit(String ref){
+
+	public Produit rechercherProduit(String ref) {
 		Iterator<Produit> it = this.getProduits().iterator();
 		Produit monProd = new Produit();
-		while(it.hasNext()){
+		while (it.hasNext()) {
 			Produit current = it.next();
-			if(current.getRef().equals(ref)){
+			if (current.getRef().equals(ref)) {
 				monProd = current;
 				break;
 			}
-			
+
 		}
-		
+
 		return monProd;
 	}
 
@@ -29,31 +34,28 @@ public class Catalogue {
 	public void setProduits(ArrayList<Produit> produits) {
 		this.produits = produits;
 	}
-	
-	public void ajouterProduit(Produit p){
+
+	public void ajouterProduit(Produit p) {
 		produits.add(p);
 	}
-	
-	public String affiche(){
+
+	public String affiche() {
 		String chaine = "";
-		for(Produit p : produits){
+		for (Produit p : produits) {
 			chaine = chaine + p.affiche();
 		}
-		
+
 		return chaine;
 	}
-	
-	public boolean refExiste(String ref){
+
+	public boolean refExiste(String ref) {
 		boolean bool = false;
-		for(Produit p : produits)
-		{
-			if(ref.equals(p.getRef()))
+		for (Produit p : produits) {
+			if (ref.equals(p.getRef()))
 				bool = true;
-					
+
 		}
 		return bool;
 	}
-	
-	
 
 }
