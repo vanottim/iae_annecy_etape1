@@ -13,6 +13,7 @@ public class Menu {
 	Catalogue catalogue;
 	Annuaire annuaire;
 	
+	
 	private Scanner saisie = new Scanner(System.in);
 
 	public Annuaire getAnnuaire() {
